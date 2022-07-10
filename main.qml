@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 
+import Backend 1.0
+
 Window {
     width: 360
     height: 400
@@ -10,13 +12,17 @@ Window {
     property alias rectangle: rectangle
     title: qsTr("Clock")
 
+    Backend {
+        id: backend
+    }
+
     Text {
         id: text1
         x: 20
         y: 20
         width: 229
         height: 30
-        text: qsTr("July 5, 2022")
+        text: backend.dateString //qsTr("July 5, 2022")
         font.pixelSize: 28
         color: "#1dc01d"
     }
