@@ -1,8 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 
-import Backend 1.0
-
 Window {
     width: 360
     height: 400
@@ -11,10 +9,6 @@ Window {
     color: "#323232"
     property alias rectangle: rectangle
     title: qsTr("Clock")
-
-    Backend {
-        id: backend
-    }
 
     Text {
         id: text1

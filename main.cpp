@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include <backend.h>
 
@@ -14,7 +15,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    qmlRegisterType<Backend>("Backend", 1, 0, "Backend");
+
+    Backend backend;
+    engine.rootContext()->setContextProperty("backend", &backend);
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

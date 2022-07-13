@@ -2,6 +2,7 @@
 #define BACKEND_H
 
 #include <QObject>
+#include <QTimer>
 
 class Backend : public QObject
 {
@@ -15,9 +16,14 @@ public:
 signals:
     void dateStringChanged();
 
+private slots:
+    void syncDateTime();
+
+
 private: // class members
     bool m_darkMode= true;
     QString m_dateString;
+    QTimer m_timer;
 };
 
 #endif // BACKEND_H
